@@ -14,22 +14,23 @@ hacer los llamados encadenables como esto:
 ladder.up().up().down().showStep().down().showStep(); // shows 1 then 0
 Tal enfoque es ampliamente usado entre las librerías JavaScript.*/
 
-
 //La solución es devolver el objeto cada vez que lo llamamos (con return this)
+//Entonces, la siguiente función a la que llamamos le hará el up() o down() a ese objeto
 let ladder = {
   step: 0,
   up() {
     this.step++;
-    return this; 
+    return this;
   },
   down() {
     this.step--;
-    return this; 
+    return this;
   },
-  showStep: function() { // muestra el peldaño actual
-    alert( this.step );
-    return this; 
-  }
+  showStep: function () {
+    // muestra el peldaño actual
+    alert(this.step);
+    return this;
+  },
 };
 
-ladder.up().up().down().showStep().down().showStep(); 
+ladder.up().up().down().showStep().down().showStep();

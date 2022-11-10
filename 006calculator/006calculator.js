@@ -6,6 +6,8 @@ sum() devuelve la suma de los valores almacenados.
 mul() multiplica los valores almacenados y devuelve el resultado.*/
 
 let calculator = {
+  a: 0,
+  b: 0,
   read() {
     //Creamos a y b a partir de los datos que recojamos de un prompt
     this.a = +prompt("Introduzca un valor");
