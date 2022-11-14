@@ -32,7 +32,6 @@ disney.unshift({
   pelicula: "Peter Pan",
 });
 
-//TODO: ¿Es después de garfio o antes?
 //Meter al cocodrilo detrás del capitán, no olvides la película
 //Con splice podemos indicarle (index, elementos que borrar al principio, nuevo item)
 disney.splice(1, 0, {
@@ -63,11 +62,13 @@ document.write(
     "<br>"
 );
 
-//TODO: esto es lo mismo que el anterior?
 //Buscar al cocodrilo.
+let cocodrilo = disney.find((personaje) => personaje.nombre == "Cocodrilo");
 document.write(
-  "El índice de Cocodrilo es: " +
-    disney.findIndex((personaje) => personaje.nombre == "Cocodrilo") +
+  "Buscando al cocodrilo: " +
+    cocodrilo.nombre +
+    " película: " +
+    cocodrilo.pelicula +
     "<br>"
 );
 
