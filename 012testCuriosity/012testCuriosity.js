@@ -6,7 +6,9 @@ alert( 9999999999999999 );
 
 alert(9999999999999999);
 
-/*Muestra: 10000000000000000 porque JavaScript solo almacena números de 64-bit IEEE-754. 
-Lo que hace es mostrar el siguiente número entero más cercano al 9999999999999999*/
+/*Muestra: 10000000000000000 porque JavaScript representa los números en formato 64-bit IEEE-754,
+Es decir, hay 64 bit para almacenar un número: 52 para los dígitos, 11 para la posición del punto decimal 
+y 1 para el signo. 
 
-//TODO: mejorar esto
+Lo que ocurre en este caso es que hay más números de los que puede representar, se pasa de esos 52,
+así que JavaScript ignora los dígitos "menos significativos". */

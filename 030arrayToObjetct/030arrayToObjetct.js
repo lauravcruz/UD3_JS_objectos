@@ -9,7 +9,23 @@ Para esta actividad asumimos que cada id es único. No existen dos elementos del
 con el mismo id.
 Usa el método de array .reduce en la solución.*/
 
+let personajes = [
+  { id: 0, nombre: "Harry", pelicula: "Harry Potter y la piedra filosofal" },
+  { id: 1, nombre: "Ralph", pelicula: "Rompe Ralph" },
+  { id: 2, nombre: "Peter", pelicula: "Spider-man" },
+  { id: 3, nombre: "Rafa", pelicula: "Ocho apellidos vascos" },
+];
 
-function groupById(arr){
-  
+let objeto = groupById(personajes);
+
+for (let key in objeto) {
+  document.write(Object.values(objeto[key]) + "<br>");
+}
+
+function groupById(arr) {
+  return arr.reduce((objeto, valor) => {
+    //Recorre cada elemento de personajes y los asigna al objeto con su id como key
+    objeto[valor.id] = valor;
+    return objeto;
+  }, {});
 }

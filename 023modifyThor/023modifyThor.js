@@ -24,7 +24,7 @@ document.write("Carácter en la posición 1: " + thor.charAt(1) + "<br>"); //¿Q
 
 //Trocea la cadena usando los espacios en blanco
 //Usamos split y le indicamos la condición del corte: espacio en blanco. Los trozos se guardan en el array
-let thorzos = thor.split(" ");
+let thorzos = thor.split(" "); // perdón por el chiste malo
 
 document.write("<br>" + "Trocitos de Thor: ");
 for (let trozo of thorzos) {
@@ -43,8 +43,10 @@ document.write("<br>Recortamos la cadena: " + thor.slice(-4) + "<br>");
 //Como no existe, nos dará un valor negativo
 document.write("<br>Encontrar la letra a: " + thor.indexOf("a") + "<br>");
 
-//TODO:Pon la mitad de la cadena en minúsculas (Sin usar las posiciones de 0 a 11)
+//Pon la mitad de la cadena en minúsculas (Sin usar las posiciones de 0 a 11)
 document.write(
   "<br>Mitad de la cadena en mayúscula: " +
+    //Calculamos la mitad de la cadena con length/2
+    thor.slice(0, thor.length / 2) +
     thor.slice(thor.length / 2).toUpperCase()
 );
