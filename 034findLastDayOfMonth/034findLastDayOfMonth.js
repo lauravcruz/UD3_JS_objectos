@@ -10,25 +10,25 @@ Por ejemplo, getLastDayOfMonth(2012, 1) = 29 (febrero, año bisiesto)*/
 alert(getLastDayOfMonth(2012, 1));
 
 function getLastDayOfMonth(year, month) {
-  let mes = [
-    "Enero",
-    "Febrero",
-    "Marzo",
-    "Abril",
-    "Mayo",
-    "Junio",
-    "Julio",
-    "Agosto",
-    "Septiembre",
-    "Octubre",
-    "Noviembre",
-    "Diciembre",
-  ];
-  
-  switch(month){
-    case 0, 2, 4, 6, 7, 9, 11:
-      return "31"; 
+  let day;
+  switch (month) {
+    //Meses con 31 días:
+    case (0, 2, 4, 6, 7, 9, 11):
+      day = 31;
+      break;
+    //Meses con 30:
+    case (3, 5, 8, 10):
+      day = 30;
+      break;
+    //febrero:
+    case 1:
+      //Un año es bisiesto si es divisible por 4. También lo es si siendo divisible por 100, también lo es entre 400
+      if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        day = 29;
+      } else {
+        day = 28;
+      }
+      break;
   }
-  
-  
+  return day;
 }

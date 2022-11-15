@@ -11,34 +11,19 @@ let date = new Date(2012, 0, 3); // 3 Jan 2012
 alert(getLocalDay(date));
 
 function getLocalDay(date) {
-  //Tenemos el array con los días de la semana internacional
-  let daysWeek = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-
-  //Ponemos el domingo en la última posición:
-  daysWeek.push(daysWeek.shift());
-
-  //El día de la semana de getDay() también lo tenemos que cambiar: si devuelve 0, le asignamos 7
+  //getDay nos da que 0 es Sunday. Cambiamos el 0 por el 7 para el europeo:
   let day = date.getDay() === 0 ? 7 : date.getDay();
 
-  //Creamos un array vacío para los días europeos
-  let diasEuropeos = [{}];
-
-  //Lo rellenamos automáticamente sumándole 1 al id para evitar el 0 (sunday)
-  for (let i = 0; i < daysWeek.length; i++) {
-    diasEuropeos.push({
-      id: i + 1,
-      dia: daysWeek[i],
-    });
-  }
-
-
-  return diasEuropeos.find((item) => item.id === day).dia;
+  //Lo pasamos a español:
+  let diasEspanyol = [
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+    "Domingo",
+  ];
+  //Restamos 1 porque day va a tener valores de 1 a 7 y el array es de 0 a 6
+  return diasEspanyol[day - 1];
 }
